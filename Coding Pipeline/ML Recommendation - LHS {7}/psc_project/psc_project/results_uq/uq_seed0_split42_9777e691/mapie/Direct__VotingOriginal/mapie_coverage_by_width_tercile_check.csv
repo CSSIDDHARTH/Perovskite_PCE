@@ -1,0 +1,4 @@
+width_tercile,n,coverage,mean_width
+narrow,866,0.888,9.6571
+medium,862,0.9084,11.2445
+wide,862,0.9258,12.2965

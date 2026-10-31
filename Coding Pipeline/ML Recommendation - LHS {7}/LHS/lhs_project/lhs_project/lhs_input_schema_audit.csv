@@ -1,0 +1,54 @@
+raw_column,treatment,model_input
+Backcontact_deposition_procedure__parsed,sampled/derived from genome,True
+Backcontact_stack_sequence__parsed,sampled/derived from genome,True
+Backcontact_thickness_list__sum,sampled/derived from genome,True
+Cell_architecture,sampled/derived from genome,True
+Cell_area_measured__parsed,fixed context (lhs_config.py),True
+Cell_flexible,fixed context (lhs_config.py),True
+Cell_semitransparent,fixed context (lhs_config.py),True
+ETL_deposition_procedure__parsed,sampled/derived from genome,True
+ETL_stack_sequence__parsed,sampled/derived from genome,True
+ETL_thickness__sum,sampled/derived from genome,True
+HTL_deposition_procedure__parsed,sampled/derived from genome,True
+HTL_stack_sequence__parsed,sampled/derived from genome,True
+HTL_thickness__sum,sampled/derived from genome,True
+Perovskite_band_gap_estimation_basis,neutralised: left missing -> KNN-imputed like training rows without it,True
+Perovskite_band_gap_graded,fixed context (lhs_config.py),True
+Perovskite_composition_a_ions__parsed,sampled/derived from genome,True
+Perovskite_composition_a_ions_coefficients__parsed,sampled/derived from genome,True
+Perovskite_composition_b_ions__parsed,sampled/derived from genome,True
+Perovskite_composition_b_ions_coefficients__parsed,sampled/derived from genome,True
+Perovskite_composition_c_ions__parsed,sampled/derived from genome,True
+Perovskite_composition_c_ions_coefficients__parsed,sampled/derived from genome,True
+Perovskite_composition_inorganic,derived from composition,True
+Perovskite_composition_leadfree,derived from composition,True
+Perovskite_deposition_aggregation_state_of_reactants__parsed,sampled/derived from genome,True
+Perovskite_deposition_number_of_deposition_steps__parsed,sampled/derived from genome,True
+Perovskite_deposition_procedure__parsed,sampled/derived from genome,True
+Perovskite_deposition_quenching_induced_crystallisation,sampled/derived from genome,True
+Perovskite_deposition_quenching_media,sampled/derived from genome,True
+Perovskite_deposition_solvent_annealing,sampled/derived from genome,True
+Perovskite_deposition_solvents__parsed_clean,sampled/derived from genome,True
+Perovskite_deposition_synthesis_atmosphere_parsed,sampled/derived from genome,True
+Perovskite_deposition_thermal_annealing_temperature__parsed,sampled/derived from genome,True
+Perovskite_deposition_thermal_annealing_time__parsed,sampled/derived from genome,True
+Perovskite_single_crystal,fixed context (lhs_config.py),True
+Perovskite_thickness__sum,sampled/derived from genome,True
+Ref_DOI_number,"identifier placeholder = None (required by PerlaEncoder._check_columns, never used in transform)",True
+Substrate_stack_sequence,sampled/derived from genome,True
+band_gap__mean,neutralised: left missing -> KNN-imputed like training rows without it,True
+JV_default_PCE,EXCLUDED: target / measured output / identifier / metadata,False
+JV_default_PCE__parsed,EXCLUDED: target / measured output / identifier / metadata,False
+JV_default_PCE__flags,EXCLUDED: target / measured output / identifier / metadata,False
+Voc,EXCLUDED: target / measured output / identifier / metadata,False
+Voc__parsed,EXCLUDED: target / measured output / identifier / metadata,False
+Voc__flags,EXCLUDED: target / measured output / identifier / metadata,False
+Jsc,EXCLUDED: target / measured output / identifier / metadata,False
+Jsc__parsed,EXCLUDED: target / measured output / identifier / metadata,False
+Jsc__flags,EXCLUDED: target / measured output / identifier / metadata,False
+FF,EXCLUDED: target / measured output / identifier / metadata,False
+FF__parsed,EXCLUDED: target / measured output / identifier / metadata,False
+FF__flags,EXCLUDED: target / measured output / identifier / metadata,False
+Ref_publication_year,EXCLUDED: target / measured output / identifier / metadata,False
+Source,EXCLUDED: target / measured output / identifier / metadata,False
+perla_row_id,EXCLUDED: target / measured output / identifier / metadata,False

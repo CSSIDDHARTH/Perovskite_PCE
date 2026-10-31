@@ -1,0 +1,13 @@
+,approach,stage1,estimator,R2_mean,R2_std,MAE_mean,MAE_std,RMSE_mean,RMSE_std,Pearson_mean,Pearson_std,seconds_mean,seconds_std,pooled_R2,pooled_MAE,pooled_RMSE,pooled_Pearson,n_folds
+Direct|RandomForest,Direct,-,RandomForest,0.3574,0.0392,2.6893,0.0368,3.4101,0.0399,0.5985,0.0331,17.894,0.2869,0.3588,2.6893,3.4103,0.5992,5
+Direct|XGBoost,Direct,-,XGBoost,0.3755,0.0397,2.6543,0.0504,3.3617,0.0478,0.6136,0.0333,4.458,0.0958,0.3768,2.6543,3.362,0.6144,5
+Direct|HistGradientBoosting,Direct,-,HistGradientBoosting,0.372,0.0385,2.6588,0.0452,3.3712,0.0414,0.6101,0.0317,9.532,0.3574,0.3733,2.6588,3.3714,0.6111,5
+Direct|ExtraTrees,Direct,-,ExtraTrees,0.342,0.036,2.7188,0.051,3.4512,0.0409,0.5857,0.0302,23.934,0.5118,0.3432,2.7188,3.4514,0.5863,5
+Direct|VotingOriginal,Direct,-,VotingOriginal,0.3805,0.0376,2.6425,0.043,3.3483,0.0412,0.6181,0.0316,31.882,0.5756,0.3818,2.6425,3.3485,0.619,5
+Direct|VotingET,Direct,-,VotingET,0.3792,0.0362,2.6455,0.0432,3.352,0.0386,0.6172,0.0305,55.816,0.6792,0.3805,2.6455,3.3521,0.6179,5
+TwoStage[S1=HistGradientBoosting]|RandomForest,TwoStage,S1=HistGradientBoosting,RandomForest,0.3742,0.0389,2.6507,0.0495,3.365,0.043,0.6123,0.0313,151.808,0.8873,0.3756,2.6508,3.3653,0.6129,5
+TwoStage[S1=HistGradientBoosting]|XGBoost,TwoStage,S1=HistGradientBoosting,XGBoost,0.3727,0.0471,2.6485,0.0667,3.3682,0.0685,0.6117,0.0376,137.362,0.951,0.3743,2.6485,3.3688,0.612,5
+TwoStage[S1=HistGradientBoosting]|HistGradientBoosting,TwoStage,S1=HistGradientBoosting,HistGradientBoosting,0.3689,0.0461,2.6548,0.0598,3.3788,0.0641,0.6085,0.0367,142.104,0.9885,0.3704,2.6548,3.3793,0.6089,5
+TwoStage[S1=HistGradientBoosting]|ExtraTrees,TwoStage,S1=HistGradientBoosting,ExtraTrees,0.3742,0.0364,2.6507,0.0583,3.3655,0.0473,0.6124,0.0303,155.972,2.4469,0.3754,2.6507,3.3658,0.6129,5
+TwoStage[S1=HistGradientBoosting]|VotingOriginal,TwoStage,S1=HistGradientBoosting,VotingOriginal,0.3782,0.0434,2.6383,0.0579,3.354,0.058,0.6157,0.035,166.096,1.1732,0.3797,2.6383,3.3544,0.6162,5
+TwoStage[S1=HistGradientBoosting]|VotingET,TwoStage,S1=HistGradientBoosting,VotingET,0.3821,0.0414,2.6314,0.0579,3.3437,0.0549,0.6188,0.0338,189.488,2.801,0.3835,2.6314,3.3441,0.6193,5

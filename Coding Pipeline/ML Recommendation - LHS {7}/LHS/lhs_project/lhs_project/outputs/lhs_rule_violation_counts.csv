@@ -1,0 +1,16 @@
+,n_violating,severity,why
+nonfinite_or_nonpositive_continuous,0,invalid,"a required continuous value is NaN/inf/<=0, or an unspecified-thickness recipe received a thickness"
+continuous_out_of_bounds,0,invalid,value outside the documented sampling bounds (after rounding)
+composition_fraction_invalid,3,invalid,site fractions negative / not summing to 1 / inconsistent with the composition family
+quench_inconsistent,0,invalid,anti-solvent flag and medium disagree (training data: flag False <=> medium 'Unknown')
+unknown_category,0,invalid,category id outside its catalogue / architecture not in the encoder vocabulary
+derived_flag_mismatch,0,invalid,inorganic / lead-free flags inconsistent with the composition (the encoder reads these booleans)
+ma_thermal_budget,2395,incompatible,MA-majority perovskite annealed above the configured temperature: thermal decomposition (domain knowledge; threshold in config)
+tolerance_factor_out_of_range,0,incompatible,Goldschmidt tolerance factor outside the configured range (domain knowledge; nearly vacuous for the default families)
+layer_unsupported_for_architecture,0,incompatible,layer / substrate used with this architecture in too few papers (project data)
+rare_pair_etl_htl,17199,uncommon,"(etl, htl) combination seen in fewer than min_pair_papers distinct TRAIN papers"
+rare_pair_htl_bc,10611,uncommon,"(htl, bc) combination seen in fewer than min_pair_papers distinct TRAIN papers"
+rare_pair_family_process,17803,uncommon,"(family, process) combination seen in fewer than min_pair_papers distinct TRAIN papers"
+rare_pair_family_htl,11021,uncommon,"(family, htl) combination seen in fewer than min_pair_papers distinct TRAIN papers"
+rare_pair_arch_process,0,uncommon,"(arch, process) combination seen in fewer than min_pair_papers distinct TRAIN papers"
+rare_pair_etl_family,20436,uncommon,"(etl, family) combination seen in fewer than min_pair_papers distinct TRAIN papers"

@@ -1,0 +1,45 @@
+run id: uq_seed0_split42_47f13251 -> /kaggle/working/psc_project/results_uq/uq_seed0_split42_47f13251
+requested: MAPIE ['Direct|VotingET', 'TwoStage[S1=HistGradientBoosting]|VotingET'] | SHAP no | test set not used
+Total rows            : 39,151
+Train rows            : 27,410  (70.01%)   unique DOI groups: 5,910
+Validation rows       : 5,870  (14.99%)   unique DOI groups: 1,302
+Test rows             : 5,871  (15.00%)   unique DOI groups: 1,223
+Train/Validation DOI overlap: 0
+Train/Test DOI overlap: 0
+Validation/Test DOI overlap: 0
+Note: the split is by whole papers, so the row percentages deviate slightly from 70/15/15 (papers contribute different numbers of rows).
+preprocessing restored from cache prep_4f3cba6b74f3.joblib (311 features)
+
+=== MAPIE CQR for 2 requested candidate(s): ['Direct|VotingET', 'TwoStage[S1=HistGradientBoosting]|VotingET'] ===
+
+--- Direct|VotingET ---
+  [Direct] RandomForest: point model fitted in 31s
+  [Direct] XGBoost: point model fitted in 6s
+  [Direct] HistGradientBoosting: point model fitted in 14s
+  [Direct] ExtraTrees: point model fitted in 44s
+  [Direct] RandomForest: quantile models (quantile regression forest (leaf weights)) ready in 2s
+  [Direct] XGBoost: quantile models (native XGBoost reg:quantileerror) ready in 18s
+  [Direct] HistGradientBoosting: quantile models (native HGBT quantile loss) ready in 30s
+  [Direct] ExtraTrees: quantile models (quantile regression forest (leaf weights)) ready in 2s
+  dispatch/pipeline checks: OK {'members_fitted': ['RandomForestRegressor', 'XGBRegressor', 'HistGradientBoostingRegressor', 'ExtraTreesRegressor'], 'point_equals_member_mean': True, 'feature_width_seen_by_models': 311, 'expected_width': 311, 'feature_width_ok': True, 'qrf_mean_vs_forest_predict_max_abs_diff': {'RandomForest': 4.796163466380676e-14, 'ExtraTrees': 1.1546319456101628e-13}, 'qrf_ok': True, 'quantile_members_finite': True, 'ok': True}
+  development_check: conformalized coverage 0.892 (target 0.9), mean width 10.97, interval score 13.65 | raw band coverage 0.882, width 10.60 | MAPIE==manual: True
+
+--- TwoStage[S1=HistGradientBoosting]|VotingET ---
+  Stage 1 (HistGradientBoosting; inner folds 5) fitted in 194s
+  [TwoStage] RandomForest: point model fitted in 227s
+  [TwoStage] XGBoost: point model fitted in 7s
+  [TwoStage] HistGradientBoosting: point model fitted in 14s
+  [TwoStage] ExtraTrees: point model fitted in 44s
+  [TwoStage] RandomForest: quantile models (quantile regression forest (leaf weights)) ready in 2s
+  [TwoStage] XGBoost: quantile models (native XGBoost reg:quantileerror) ready in 20s
+  [TwoStage] HistGradientBoosting: quantile models (native HGBT quantile loss) ready in 32s
+  [TwoStage] ExtraTrees: quantile models (quantile regression forest (leaf weights)) ready in 2s
+  dispatch/pipeline checks: OK {'members_fitted': ['RandomForestRegressor', 'XGBRegressor', 'HistGradientBoostingRegressor', 'ExtraTreesRegressor'], 'point_equals_member_mean': True, 'feature_width_seen_by_models': 314, 'expected_width': 314, 'feature_width_ok': True, 'qrf_mean_vs_forest_predict_max_abs_diff': {'RandomForest': 3.197442310920451e-14, 'ExtraTrees': 7.815970093361102e-14}, 'qrf_ok': True, 'quantile_members_finite': True, 'ok': True}
+  development_check: conformalized coverage 0.888 (target 0.9), mean width 10.62, interval score 13.43 | raw band coverage 0.883, width 10.43 | MAPIE==manual: True
+
+MAPIE summary:
+                                  model_id      evaluated_on  n_calibration  n_eval  target  coverage  coverage_ci_low  coverage_ci_high  mean_width  median_width  interval_score  spearman_width_vs_abs_error  point_RMSE  point_R2  raw_coverage  raw_mean_width  seconds
+                           Direct|VotingET development_check           3025    2845     0.9     0.892            0.873             0.909      10.972        11.242          13.648                        0.223       3.343     0.493         0.882          10.597    212.5
+TwoStage[S1=HistGradientBoosting]|VotingET development_check           3025    2845     0.9     0.888            0.868             0.906      10.624        10.828          13.427                        0.196       3.313     0.502         0.883          10.426    421.6
+
+Outputs written to /kaggle/working/psc_project/results_uq/uq_seed0_split42_47f13251

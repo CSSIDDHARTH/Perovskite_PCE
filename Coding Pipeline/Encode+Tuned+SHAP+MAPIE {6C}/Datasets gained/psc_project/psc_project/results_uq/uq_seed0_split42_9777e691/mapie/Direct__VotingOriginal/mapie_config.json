@@ -1,0 +1,72 @@
+{
+  "selected_via": "--mapie-models",
+  "confidence_level": 0.9,
+  "correction": "asymmetric CQR (MAPIE default; alpha/2 per tail)",
+  "mapie_class": "mapie.regression.ConformalizedQuantileRegressor(prefit=True)",
+  "model_id": "Direct|VotingOriginal",
+  "approach": "Direct",
+  "estimator": "VotingOriginal",
+  "members": [
+    "RandomForest",
+    "XGBoost",
+    "HistGradientBoosting"
+  ],
+  "band_construction": "equal-weight average of member quantile predictions: RandomForest -> quantile regression forest (leaf weights); XGBoost -> native XGBoost reg:quantileerror; HistGradientBoosting -> native HGBT quantile loss",
+  "point_prediction": "candidate's own point predictor (mean of member predictions)",
+  "cqr_flavour": "CQR on an averaged quantile band (members: native quantile models and/or quantile-regression forests)",
+  "quantile_levels": [
+    0.04999999999999999,
+    0.95
+  ],
+  "quantile_notes": {
+    "Direct|RandomForest": "quantile regression forest; weights: in-bag counts",
+    "Direct|XGBoost": "native XGBoost reg:quantileerror",
+    "Direct|HistGradientBoosting": "native HGBT quantile loss"
+  },
+  "calibration": {
+    "set": "VALIDATION papers",
+    "development_calibration_rows": 2639,
+    "development_check_rows": 2590,
+    "cal_fraction_of_papers": 0.5,
+    "cal_repeats": 5,
+    "final_calibration_rows": null,
+    "evaluated_on": "paper-disjoint check part of VALIDATION"
+  },
+  "assumptions": [
+    "calibration and evaluation rows exchangeable (paper-level split)",
+    "lower/upper/point fitted without the calibration rows",
+    "one conformalize call per MAPIE object (fresh objects are used for each calibration)"
+  ],
+  "limitations": [
+    "Coverage is MARGINAL (averaged over devices), not guaranteed within PCE ranges, compositions or for individual papers; coverage conditional on the true PCE is expected to fall short at the extremes (see coverage-by-bin file).",
+    "The guarantee needs the calibration rows and the evaluated rows to be exchangeable.  Rows of a paper are correlated, so all splits are by paper; the guarantee then refers to NEW papers drawn like the calibration papers.",
+    "Finite sample: the guarantee holds in expectation over the calibration draw; the realised coverage on one finite check/test set fluctuates (a paper-level bootstrap interval is reported).",
+    "The development check calibrates on only part of the validation set and is a noisy estimate (use --cal-repeats).",
+    "Quantile crossing is repaired by sorting (lower <- min, upper <- max) before conformalization.",
+    "RandomForest / ExtraTrees have no quantile loss: the band is a quantile-regression-forest band built from the leaf weights of the SAME fitted forest (training rows only).  Validity does not depend on this choice; width does.",
+    "There is no native quantile of an ensemble mean: the band is the equal-weight AVERAGE of the member quantile predictions while the point prediction is the exact ensemble mean.  The conformal calibration is applied to the averaged band, so coverage describes the ensemble band, not any single member."
+  ],
+  "leakage_checks": {
+    "train_rows": 24403,
+    "validation_rows": 5229,
+    "test_rows": "not loaded",
+    "train_validation_paper_overlap": 0,
+    "test_paper_overlap": "not applicable",
+    "models_fitted_on": "TRAIN only (point models, quantile models, quantile forests, Stage 1)",
+    "calibration_data": "VALIDATION papers only (development: a paper-disjoint part; final: all)",
+    "test_data": "NOT loaded"
+  },
+  "fit_seconds": {
+    "Direct|RandomForest|point_fit_s": 28.4,
+    "Direct|XGBoost|point_fit_s": 7.0,
+    "Direct|HistGradientBoosting|point_fit_s": 14.9,
+    "Direct|RandomForest|quantile_fit_s": 2.1,
+    "Direct|XGBoost|quantile_fit_s": 18.9,
+    "Direct|HistGradientBoosting|quantile_fit_s": 31.6
+  },
+  "run_seconds_this_candidate": 129.8,
+  "versions": {
+    "mapie": "1.5.0",
+    "sklearn": "1.6.1"
+  }
+}

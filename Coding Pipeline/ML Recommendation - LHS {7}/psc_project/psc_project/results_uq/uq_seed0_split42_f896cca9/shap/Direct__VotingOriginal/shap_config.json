@@ -1,0 +1,30 @@
+{
+  "model_id": "Direct|VotingOriginal",
+  "approach": "Direct",
+  "estimator": "VotingOriginal",
+  "members": [
+    "RandomForest",
+    "XGBoost",
+    "HistGradientBoosting"
+  ],
+  "shap_method": "interventional",
+  "member_algorithms": {
+    "RandomForest": "interventional",
+    "XGBoost": "xgboost_native_pred_contribs",
+    "HistGradientBoosting": "interventional"
+  },
+  "background_rows": 100,
+  "background": "random TRAIN rows (seeded)",
+  "n_rows_explained": 1000,
+  "n_features": 306,
+  "additivity_tolerance": 0.001,
+  "candidate_additivity": {
+    "base_value": 13.489524820894749,
+    "max_gap": 9.809187027087773e-06,
+    "mean_gap": 2.6875307504123924e-06,
+    "additive": true
+  },
+  "stage1_prediction_share_of_attribution": null,
+  "explained_rows": "validation subsample (see shap_explained_rows.csv); no labels used",
+  "note": "SHAP values describe the model's behaviour, not causal effects."
+}

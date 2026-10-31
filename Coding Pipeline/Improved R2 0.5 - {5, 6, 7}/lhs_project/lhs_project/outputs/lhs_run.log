@@ -1,0 +1,46 @@
+2026-10-13 18:47:08,827 design space from 27410 TRAIN rows / 5910 papers: 14 families, 54/17/13 ETL/HTL/BC recipes, 15 process recipes
+2026-10-13 18:47:12,027 sampled 50000 raw candidates; exact LHS strata in all dimensions: True
+2026-10-13 18:47:12,697 funnel: {'stage': 'raw LHS candidates', 'remaining': 50000, 'removed': 0}
+2026-10-13 18:47:12,697 funnel: {'stage': 'after invalid-candidate rules', 'remaining': 49929, 'removed': 71}
+2026-10-13 18:47:12,697 funnel: {'stage': 'after fabrication-incompatibility rules', 'remaining': 47746, 'removed': 2183}
+2026-10-13 18:47:12,698 funnel: {'stage': 'feasible (flagged uncommon among them: 36611)', 'remaining': 47746, 'removed': 0}
+2026-10-13 18:48:26,999 [artifacts] split: train 27410 / val 5870 / test 5871 rows
+2026-10-13 18:49:45,706 [artifacts] preprocessors fitted on TRAIN in 80s: 311 features
+2026-10-13 18:50:00,889 [artifacts] cache comparison: {'available': False, 'note': 'no cached training matrix given (cfg.reference_prep_cache); reproduction of the reported run not verified'}
+2026-10-13 18:50:18,315 [encode] 5000/47746
+2026-10-13 18:50:30,996 [encode] 10000/47746
+2026-10-13 18:50:43,564 [encode] 15000/47746
+2026-10-13 18:50:56,139 [encode] 20000/47746
+2026-10-13 18:51:09,063 [encode] 25000/47746
+2026-10-13 18:51:21,934 [encode] 30000/47746
+2026-10-13 18:51:34,795 [encode] 35000/47746
+2026-10-13 18:51:47,983 [encode] 40000/47746
+2026-10-13 18:52:00,702 [encode] 45000/47746
+2026-10-13 18:52:07,654 [encode] 47746/47746
+2026-10-13 18:53:51,493 [finalist] Direct|VotingOriginal: built / fitted in 104s (members ('RandomForest', 'XGBoost', 'HistGradientBoosting'))
+2026-10-13 18:59:55,639 [finalist] TwoStage[S1=HistGradientBoosting]|VotingET: built / fitted in 364s (members ('RandomForest', 'XGBoost', 'HistGradientBoosting', 'ExtraTrees'))
+2026-10-13 19:00:01,041 [mapie] Direct|VotingOriginal: conformalised on 5870 validation rows (1302 papers), confidence 0.9
+2026-10-13 19:00:05,820 [predict] direct: 5000/47746
+2026-10-13 19:00:10,801 [predict] direct: 10000/47746
+2026-10-13 19:00:15,549 [predict] direct: 15000/47746
+2026-10-13 19:00:20,129 [predict] direct: 20000/47746
+2026-10-13 19:00:24,942 [predict] direct: 25000/47746
+2026-10-13 19:00:29,532 [predict] direct: 30000/47746
+2026-10-13 19:00:34,058 [predict] direct: 35000/47746
+2026-10-13 19:00:38,812 [predict] direct: 40000/47746
+2026-10-13 19:00:43,506 [predict] direct: 45000/47746
+2026-10-13 19:00:45,774 [predict] direct: 47746/47746
+2026-10-13 19:01:00,495 [mapie] direct: held-out coverage 0.895 (target 0.9), mean width 11.17
+2026-10-13 19:01:14,233 [mapie] TwoStage[S1=HistGradientBoosting]|VotingET: conformalised on 5870 validation rows (1302 papers), confidence 0.9
+2026-10-13 19:01:25,453 [predict] twostage: 5000/47746
+2026-10-13 19:01:36,541 [predict] twostage: 10000/47746
+2026-10-13 19:01:47,710 [predict] twostage: 15000/47746
+2026-10-13 19:01:59,080 [predict] twostage: 20000/47746
+2026-10-13 19:02:11,347 [predict] twostage: 25000/47746
+2026-10-13 19:02:23,929 [predict] twostage: 30000/47746
+2026-10-13 19:02:35,109 [predict] twostage: 35000/47746
+2026-10-13 19:02:46,363 [predict] twostage: 40000/47746
+2026-10-13 19:02:57,523 [predict] twostage: 45000/47746
+2026-10-13 19:03:03,645 [predict] twostage: 47746/47746
+2026-10-13 19:03:42,143 [mapie] twostage: held-out coverage 0.894 (target 0.9), mean width 10.77
+2026-10-13 19:04:01,998 done. outputs in /kaggle/working/lhs_project/outputs

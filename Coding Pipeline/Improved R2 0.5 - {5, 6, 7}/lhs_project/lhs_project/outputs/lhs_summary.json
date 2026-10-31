@@ -1,0 +1,396 @@
+{
+  "config_seed": 42,
+  "n_requested": 50000,
+  "versions": {
+    "python": "3.13.15",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "sklearn": "1.6.1",
+    "xgboost": "3.4.1",
+    "mapie": "1.5.0",
+    "shap": "0.52.0",
+    "matminer": "0.10.1",
+    "pymatgen": null,
+    "joblib": "1.6.0"
+  },
+  "skip_models": false,
+  "quick": false,
+  "validation_checks": {
+    "candidate_ids_unique": true,
+    "lhs_exactly_stratified_all_dims": true,
+    "raw_frame_schema_ok": true,
+    "schema_exact": true,
+    "no_target_columns_in_candidates": true,
+    "representable_in_encoder_vocabulary": true,
+    "encoded_columns_equal_training_columns": true,
+    "intervals_lower_le_upper": true,
+    "predictions_finite": true,
+    "twostage_uses_stage1_predictions_only": true
+  },
+  "limitations": [
+    "Predictions are in-distribution-trained regressions (R2 ~0.38, RMSE ~3.3 PCE points in cross-validation): the model explains a minority of the variance, and the reported RMSE gap between the finalists (0.005 +- 0.010) is within noise.",
+    "The finalists are reconstructed by refitting (nothing was serialised); check `reconstruction` for whether this environment reproduced the reported run.",
+    "Conformal intervals are marginal for exchangeable real devices; LHS candidates are synthetic, and candidates selected for high predicted PCE / lower bound are subject to winner's-curse bias, so nominal coverage does not apply to the ranked lists.",
+    "Interval width is only weakly informative about per-device error; Stage-1 error of the two-stage model is not propagated separately.",
+    "The design space is restricted to one-step spin-coated Pb perovskites (Cs/FA/MA, I/Br) on glass with observed recipe levels; multi-step anneals, other processes, tin / lead-free, plastic substrates and unseen materials are NOT explored.",
+    "Reporting artefacts: training rows with reported thickness / band gap are a non-random subset; candidates set thickness explicitly (missing flag 0) and leave band gap missing (flag 1), so predictions refer to those sub-populations.",
+    "Annealing time / temperature and thickness bounds, the MA thermal rule and the lambda of score C are proposals needing expert review; sensitivity to lambda and the support threshold is reported.",
+    "Category probabilities (p ~ papers**gamma) encode a prior about what is worth exploring; very rare recipes are excluded by min_papers_category.",
+    "Model agreement is not validation; both finalists share data, preprocessing and likely systematic errors. SHAP / group Shapley describe the models, not causal effects."
+  ],
+  "support": {
+    "reference_rows": 2000,
+    "reference_quantiles": {
+      "0.5": 0.11541440337896347,
+      "0.9": 0.22722605019807826,
+      "0.95": 0.2584354966878891,
+      "0.99": 0.32583377927541735
+    },
+    "n_feasible": 47746,
+    "uncommon_share": 0.766786746533741,
+    "out_of_support_share": 0.4287898462698446,
+    "max_support_percentile": 0.95,
+    "unspecified_thickness_share": {
+      "etl": 0.244146106480124,
+      "htl": 0.14131026682863487,
+      "bc": 0.10300339295438361
+    }
+  },
+  "funnel": [
+    {
+      "stage": "raw LHS candidates",
+      "remaining": 50000,
+      "removed": 0
+    },
+    {
+      "stage": "after invalid-candidate rules",
+      "remaining": 49929,
+      "removed": 71
+    },
+    {
+      "stage": "after fabrication-incompatibility rules",
+      "remaining": 47746,
+      "removed": 2183
+    },
+    {
+      "stage": "feasible (flagged uncommon among them: 36611)",
+      "remaining": 47746,
+      "removed": 0
+    },
+    {
+      "stage": "inside support threshold (eligible for ranking, before model checks)",
+      "remaining": 27273,
+      "removed": 20473
+    }
+  ],
+  "encoding": {
+    "n_features": 311,
+    "cells_imputed_by_knn_per_column": {
+      "num__band_gap__mean": 47746,
+      "num__ETL_thickness__sum": 11657,
+      "num__HTL_thickness__sum": 6747,
+      "num__Backcontact_thickness_list__sum": 4918
+    }
+  },
+  "reconstruction": {
+    "cache_comparison": {
+      "available": false,
+      "note": "no cached training matrix given (cfg.reference_prep_cache); reproduction of the reported run not verified"
+    },
+    "fidelity_vs_reported_uq_run": {
+      "Direct|VotingOriginal": {
+        "available": false,
+        "note": "results_uq/uq_seed0_split42_47f13251/mapie/Direct__VotingOriginal/mapie_intervals_check.csv not found"
+      },
+      "TwoStage[S1=HistGradientBoosting]|VotingET": {
+        "available": false,
+        "note": "results_uq/uq_seed0_split42_47f13251/mapie/TwoStage_S1-HistGradientBoosting__VotingET/mapie_intervals_check.csv not found"
+      }
+    },
+    "note": "models are refitted, not loaded; see fidelity entries",
+    "fit_seconds": 95.4
+  },
+  "conformal_development_check": {
+    "Direct|VotingOriginal": {
+      "model_id": "Direct|VotingOriginal",
+      "target": 0.9,
+      "repeats": [
+        {
+          "repeat": 0,
+          "calibration_rows": 3025,
+          "check_rows": 2845,
+          "coverage": 0.8903339191564148,
+          "mean_width": 11.13140705086863,
+          "interval_score": 13.73681823709762,
+          "spearman_width_vs_abs_error": 0.2107877516538571,
+          "coverage_ci_95": [
+            0.8696970021376002,
+            0.9075614240954236
+          ],
+          "point_RMSE": 3.3463284205900017,
+          "point_R2": 0.4920345305719932
+        },
+        {
+          "repeat": 1,
+          "calibration_rows": 2815,
+          "check_rows": 3055,
+          "coverage": 0.8880523731587562,
+          "mean_width": 10.954357669137789,
+          "interval_score": 13.64101259904562,
+          "spearman_width_vs_abs_error": 0.19230984900336776,
+          "coverage_ci_95": [
+            0.8680879499605176,
+            0.9078048550607886
+          ],
+          "point_RMSE": 3.262320400056315,
+          "point_R2": 0.4925681384140417
+        },
+        {
+          "repeat": 2,
+          "calibration_rows": 2899,
+          "check_rows": 2971,
+          "coverage": 0.9054190508246381,
+          "mean_width": 11.42254235319209,
+          "interval_score": 13.61935930595865,
+          "spearman_width_vs_abs_error": 0.19964328412417678,
+          "coverage_ci_95": [
+            0.8874963966748126,
+            0.9213436723253478
+          ],
+          "point_RMSE": 3.280504183516421,
+          "point_R2": 0.4698468582570259
+        }
+      ],
+      "coverage_mean": 0.894601781046603,
+      "coverage_sd": 0.009437232492788956,
+      "coverage_min": 0.8880523731587562,
+      "coverage_max": 0.9054190508246381,
+      "mean_width": 11.16943569106617,
+      "coverage_by_true_pce_bin_repeat0": [
+        {
+          "bin": "[0, 5)",
+          "n": 110,
+          "coverage": 0.2818,
+          "mean_width": 10.3353
+        },
+        {
+          "bin": "[5, 10)",
+          "n": 566,
+          "coverage": 0.9134,
+          "mean_width": 11.1642
+        },
+        {
+          "bin": "[10, 15)",
+          "n": 986,
+          "coverage": 0.9888,
+          "mean_width": 11.3114
+        },
+        {
+          "bin": "[15, 20)",
+          "n": 982,
+          "coverage": 0.8951,
+          "mean_width": 11.2514
+        },
+        {
+          "bin": "[20, 25)",
+          "n": 185,
+          "coverage": 0.6703,
+          "mean_width": 10.082
+        },
+        {
+          "bin": "[25, 100)",
+          "n": 16,
+          "coverage": 0.4375,
+          "mean_width": 9.1239
+        }
+      ]
+    },
+    "TwoStage[S1=HistGradientBoosting]|VotingET": {
+      "model_id": "TwoStage[S1=HistGradientBoosting]|VotingET",
+      "target": 0.9,
+      "repeats": [
+        {
+          "repeat": 0,
+          "calibration_rows": 3025,
+          "check_rows": 2845,
+          "coverage": 0.8878734622144112,
+          "mean_width": 10.624312605574522,
+          "interval_score": 13.42731531013926,
+          "spearman_width_vs_abs_error": 0.19561956853557416,
+          "coverage_ci_95": [
+            0.8660565156465512,
+            0.9057186720094493
+          ],
+          "point_RMSE": 3.3134964390883757,
+          "point_R2": 0.5019532811524874
+        },
+        {
+          "repeat": 1,
+          "calibration_rows": 2815,
+          "check_rows": 3055,
+          "coverage": 0.8913256955810147,
+          "mean_width": 10.726808531526448,
+          "interval_score": 13.334998294658883,
+          "spearman_width_vs_abs_error": 0.19493259733940238,
+          "coverage_ci_95": [
+            0.87167632041303,
+            0.9088421291597818
+          ],
+          "point_RMSE": 3.240577793929155,
+          "point_R2": 0.4993094292308822
+        },
+        {
+          "repeat": 2,
+          "calibration_rows": 2899,
+          "check_rows": 2971,
+          "coverage": 0.9040727027936721,
+          "mean_width": 10.961710620751507,
+          "interval_score": 13.186741967291805,
+          "spearman_width_vs_abs_error": 0.20234373536730027,
+          "coverage_ci_95": [
+            0.8875974971472621,
+            0.9201915406264553
+          ],
+          "point_RMSE": 3.2573261018654454,
+          "point_R2": 0.47731188346521947
+        }
+      ],
+      "coverage_mean": 0.8944239535296994,
+      "coverage_sd": 0.008532482087507369,
+      "coverage_min": 0.8878734622144112,
+      "coverage_max": 0.9040727027936721,
+      "mean_width": 10.770943919284159,
+      "coverage_by_true_pce_bin_repeat0": [
+        {
+          "bin": "[0, 5)",
+          "n": 110,
+          "coverage": 0.2818,
+          "mean_width": 9.8542
+        },
+        {
+          "bin": "[5, 10)",
+          "n": 566,
+          "coverage": 0.8993,
+          "mean_width": 10.6671
+        },
+        {
+          "bin": "[10, 15)",
+          "n": 986,
+          "coverage": 0.9838,
+          "mean_width": 10.8448
+        },
+        {
+          "bin": "[15, 20)",
+          "n": 982,
+          "coverage": 0.8951,
+          "mean_width": 10.7166
+        },
+        {
+          "bin": "[20, 25)",
+          "n": 185,
+          "coverage": 0.7081,
+          "mean_width": 9.5165
+        },
+        {
+          "bin": "[25, 100)",
+          "n": 16,
+          "coverage": 0.375,
+          "mean_width": 7.9637
+        }
+      ]
+    }
+  },
+  "conformal_limitations": {
+    "marginal_only": "Coverage is marginal over real devices of new papers; it is not conditional on PCE level, composition or recipe.",
+    "exchangeability": "Candidates are synthetic recipes; the guarantee needs exchangeability with the calibration rows, which LHS candidates do not satisfy.",
+    "selection": "Ranking and selecting candidates by predicted PCE or lower bound invalidates the nominal coverage for the selected set (winner's curse).",
+    "twostage": "Stage-1 uncertainty is not propagated separately; it is absorbed in the end-to-end calibrated residuals of the Stage-2 pipeline.",
+    "width": "Interval width is only weakly related to per-device error in the reference run (Spearman ~0.13); it is not a reliable per-candidate confidence.",
+    "not_guaranteed": "Nominal 90 % intervals are not guaranteed to reach 90 % on future experimental recipes."
+  },
+  "conformal_intervals_candidates": {
+    "direct": {
+      "n": 47746,
+      "width_mean": 11.836107074849172,
+      "width_min": 5.978270411810666,
+      "width_max": 15.902458174428249,
+      "point_outside_interval_fraction": 0.0
+    },
+    "twostage": {
+      "n": 47746,
+      "width_mean": 11.633037519564303,
+      "width_min": 6.006334108228673,
+      "width_max": 14.903469272844458,
+      "point_outside_interval_fraction": 0.0
+    }
+  },
+  "predictions": {
+    "direct": {
+      "n_nonfinite": 0,
+      "n_out_of_plausible_range": 0,
+      "n_point_outside_interval": 0,
+      "n_eligible": 27273,
+      "pce_quantiles_all_feasible": {
+        "0.0": 5.5354305414061455,
+        "0.01": 7.305266544348453,
+        "0.5": 13.600067479998687,
+        "0.99": 17.298193775894944,
+        "1.0": 18.92066605311154
+      },
+      "width_mean": 11.836107074849172,
+      "spearman_width_vs_pce": -0.0646729985723255
+    },
+    "twostage": {
+      "n_nonfinite": 0,
+      "n_out_of_plausible_range": 0,
+      "n_point_outside_interval": 0,
+      "n_eligible": 27273,
+      "pce_quantiles_all_feasible": {
+        "0.0": 6.264156688206157,
+        "0.01": 7.157398464917083,
+        "0.5": 13.507331305997006,
+        "0.99": 17.409911417964775,
+        "1.0": 18.83165942920401
+      },
+      "width_mean": 11.633037519564303,
+      "spearman_width_vs_pce": -0.07228746735195334
+    },
+    "direct_vs_twostage": {
+      "spearman": 0.9499823880841771,
+      "pearson": 0.9581336515425404,
+      "mean_abs_difference": 0.5547683602496253,
+      "p95_abs_difference": 1.430304974342397,
+      "note": "agreement between finalists is not evidence of correctness (shared data, preprocessing and likely errors)"
+    },
+    "uncommon_share_of_feasible": 0.766786746533741,
+    "out_of_support_share_of_feasible": 0.4287898462698446
+  },
+  "consensus": {
+    "pool": 2000,
+    "selected": 50,
+    "requested": 50,
+    "min_distance_required": 0.15,
+    "min_pairwise_distance": 0.15195190906524658,
+    "mean_pairwise_distance": 0.4023154377937317,
+    "filled": true,
+    "rule": "walk down min(score_C_direct, score_C_twostage); keep a candidate only if its Gower distance to all kept ones >= min_distance_required"
+  },
+  "sensitivity_default_vs_alternatives": {
+    "min_jaccard": 0.5037593984962406,
+    "median_jaccard": 0.6666666666666666,
+    "note": "Jaccard overlap of the top-K sets under alternative (lambda, support threshold) vs the default"
+  },
+  "runtime_seconds": {
+    "design_space": 8.2,
+    "sampling": 3.2,
+    "feasibility": 0.8,
+    "support": 72.6,
+    "preprocessing_fit": 95.5,
+    "encoding": 126.8,
+    "finalist_fit": 468.0,
+    "prediction": 240.4,
+    "ranking": 5.9
+  }
+}

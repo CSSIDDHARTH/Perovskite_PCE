@@ -1,0 +1,4 @@
+step,rows_before,rows_after,rows_removed
+A drop duplicates (scope=within_paper),49027,47616,1411
+B drop unknown PCE,47616,46997,619
+C IQR outliers,46997,41674,5323

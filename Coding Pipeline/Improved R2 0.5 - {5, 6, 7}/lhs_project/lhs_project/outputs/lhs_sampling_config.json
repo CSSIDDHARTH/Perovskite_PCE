@@ -1,0 +1,1507 @@
+{
+  "config": {
+    "data_path": "perla_final_filtered.pkl",
+    "out_dir": "/kaggle/working/lhs_project/outputs",
+    "reported_run_dir": "results/5fold_seed0_split42_675a0c14",
+    "reference_uq_dir": "results_uq/uq_seed0_split42_47f13251",
+    "reference_prep_cache": "results_uq/_prep_cache/prep_4f3cba6b74f3.joblib",
+    "seed": 42,
+    "model_seed": 0,
+    "split_seed": 42,
+    "n_candidates": 50000,
+    "lhs_scramble": true,
+    "lhs_optimization": null,
+    "batch_size": 5000,
+    "quick": false,
+    "n_jobs": -1,
+    "stage1_base": "hgb",
+    "inner_folds": 5,
+    "add_product": false,
+    "finalists": [
+      "Direct|VotingOriginal",
+      "TwoStage[S1=HistGradientBoosting]|VotingET"
+    ],
+    "confidence": 0.9,
+    "cal_fraction": 0.5,
+    "cal_repeats": 3,
+    "score_test": false,
+    "tempering_gamma": 0.5,
+    "min_papers_category": 10,
+    "min_papers_family": 15,
+    "min_thickness_obs": 20,
+    "allowed_perovskite_procedures": [
+      "Spin-coating"
+    ],
+    "allowed_n_steps": [
+      1
+    ],
+    "allowed_substrates": [
+      "SLG | FTO",
+      "SLG | ITO"
+    ],
+    "allowed_a_ions": [
+      "Cs",
+      "FA",
+      "MA"
+    ],
+    "allowed_b_ions": [
+      "Pb"
+    ],
+    "allowed_c_ions": [
+      "I",
+      "Br"
+    ],
+    "allow_empty_htl": false,
+    "excluded_media": [
+      "Antisolvent",
+      "Gas",
+      "Unknown",
+      "unknown",
+      "Air",
+      "Hot air"
+    ],
+    "bounds": {
+      "anneal_temperature_C": [
+        70.0,
+        160.0
+      ],
+      "anneal_time_min": [
+        2.0,
+        60.0
+      ],
+      "perovskite_thickness_nm": [
+        200.0,
+        650.0
+      ]
+    },
+    "layer_hard_bounds_nm": {
+      "etl": [
+        5.0,
+        400.0
+      ],
+      "htl": [
+        5.0,
+        400.0
+      ],
+      "bc": [
+        20.0,
+        300.0
+      ]
+    },
+    "layer_fallback_quantiles": [
+      0.1,
+      0.9
+    ],
+    "composition_default_fraction_bounds": [
+      0.05,
+      0.95
+    ],
+    "round_to": {
+      "anneal_temperature_C": 1.0,
+      "anneal_time_min": 0.5,
+      "perovskite_thickness_nm": 5.0,
+      "etl_thickness_nm": 1.0,
+      "htl_thickness_nm": 1.0,
+      "bc_thickness_nm": 1.0,
+      "fraction": 0.01
+    },
+    "cell_area_cm2": 0.1,
+    "cell_flexible": false,
+    "cell_semitransparent": false,
+    "perovskite_single_crystal": false,
+    "perovskite_band_gap_graded": false,
+    "ma_min_fraction_for_thermal_rule": 0.5,
+    "ma_max_anneal_temperature_C": 150.0,
+    "tolerance_factor_range": [
+      0.8,
+      1.05
+    ],
+    "min_pair_papers": 3,
+    "reject_uncommon": false,
+    "support_k": 5,
+    "support_reference_rows": 2000,
+    "max_support_percentile": 0.95,
+    "plausible_pce_range": [
+      0.0,
+      30.0
+    ],
+    "top_k": 100,
+    "consensus_k": 50,
+    "consensus_pool": 2000,
+    "diversity_min_distance": 0.15,
+    "score_lambda": 0.5,
+    "lambda_grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "support_grid": [
+      0.9,
+      0.95,
+      0.99
+    ],
+    "shap": false,
+    "shap_background": 50,
+    "shap_group_permutations": 20,
+    "shap_group_background": 20
+  },
+  "dims": [
+    "arch",
+    "family",
+    "etl",
+    "htl",
+    "bc",
+    "substrate",
+    "process",
+    "media",
+    "atmosphere",
+    "anneal_T",
+    "anneal_logt",
+    "pvk_thick",
+    "etl_thick",
+    "htl_thick",
+    "bc_thick",
+    "u_Cs",
+    "u_FA",
+    "u_Br"
+  ],
+  "categories": {
+    "architecture": [
+      {
+        "value": "nip",
+        "n_rows": 19370,
+        "n_papers": 4131,
+        "p": 0.5976675834660973
+      },
+      {
+        "value": "pin",
+        "n_rows": 8040,
+        "n_papers": 1872,
+        "p": 0.4023324165339027
+      }
+    ],
+    "composition_family": [
+      {
+        "id": 0,
+        "label": "MA|Pb|I",
+        "n_rows": 17072,
+        "n_papers": 3655,
+        "probability": 0.276417
+      },
+      {
+        "id": 1,
+        "label": "Cs+FA+MA|Pb|Br+I",
+        "n_rows": 2889,
+        "n_papers": 755,
+        "probability": 0.12563
+      },
+      {
+        "id": 2,
+        "label": "FA+MA|Pb|Br+I",
+        "n_rows": 2216,
+        "n_papers": 542,
+        "probability": 0.106444
+      },
+      {
+        "id": 3,
+        "label": "FA|Pb|I",
+        "n_rows": 829,
+        "n_papers": 296,
+        "probability": 0.078662
+      },
+      {
+        "id": 4,
+        "label": "FA+MA|Pb|I",
+        "n_rows": 736,
+        "n_papers": 178,
+        "probability": 0.061
+      },
+      {
+        "id": 5,
+        "label": "Cs|Pb|Br+I",
+        "n_rows": 730,
+        "n_papers": 180,
+        "probability": 0.061342
+      },
+      {
+        "id": 6,
+        "label": "Cs+FA|Pb|Br+I",
+        "n_rows": 549,
+        "n_papers": 146,
+        "probability": 0.055246
+      },
+      {
+        "id": 7,
+        "label": "Cs+FA|Pb|I",
+        "n_rows": 481,
+        "n_papers": 134,
+        "probability": 0.052927
+      },
+      {
+        "id": 8,
+        "label": "MA|Pb|Br+I",
+        "n_rows": 346,
+        "n_papers": 94,
+        "probability": 0.044329
+      },
+      {
+        "id": 9,
+        "label": "Cs|Pb|I",
+        "n_rows": 277,
+        "n_papers": 77,
+        "probability": 0.040121
+      },
+      {
+        "id": 10,
+        "label": "Cs+FA+MA|Pb|I",
+        "n_rows": 151,
+        "n_papers": 54,
+        "probability": 0.033598
+      },
+      {
+        "id": 11,
+        "label": "Cs+MA|Pb|I",
+        "n_rows": 69,
+        "n_papers": 21,
+        "probability": 0.020952
+      },
+      {
+        "id": 12,
+        "label": "Cs|Pb|Br",
+        "n_rows": 60,
+        "n_papers": 30,
+        "probability": 0.025043
+      },
+      {
+        "id": 13,
+        "label": "MA|Pb|Br",
+        "n_rows": 33,
+        "n_papers": 16,
+        "probability": 0.018289
+      }
+    ],
+    "substrate": [
+      {
+        "id": 0,
+        "value": "SLG | FTO",
+        "n_papers_nip": 2744,
+        "n_papers_pin": 209,
+        "n_rows": 15069
+      },
+      {
+        "id": 1,
+        "value": "SLG | ITO",
+        "n_papers_nip": 549,
+        "n_papers_pin": 1286,
+        "n_rows": 8379
+      }
+    ],
+    "perovskite_process": [
+      {
+        "id": 0,
+        "label": "Spin-coating | DMF+DMSO | steps=1 | antisolvent=True | solvent_anneal=False",
+        "n_rows": 7123,
+        "n_papers": 1375,
+        "probability": 0.219611
+      },
+      {
+        "id": 1,
+        "label": "Spin-coating | DMF | steps=1 | antisolvent=False | solvent_anneal=False",
+        "n_rows": 2995,
+        "n_papers": 709,
+        "probability": 0.157698
+      },
+      {
+        "id": 2,
+        "label": "Spin-coating | DMSO+GBL | steps=1 | antisolvent=True | solvent_anneal=False",
+        "n_rows": 1502,
+        "n_papers": 275,
+        "probability": 0.098213
+      },
+      {
+        "id": 3,
+        "label": "Spin-coating | DMF | steps=1 | antisolvent=True | solvent_anneal=False",
+        "n_rows": 1426,
+        "n_papers": 293,
+        "probability": 0.101376
+      },
+      {
+        "id": 4,
+        "label": "Spin-coating | DMF+DMSO | steps=1 | antisolvent=False | solvent_anneal=False",
+        "n_rows": 737,
+        "n_papers": 181,
+        "probability": 0.079679
+      },
+      {
+        "id": 5,
+        "label": "Spin-coating | DMSO | steps=1 | antisolvent=True | solvent_anneal=False",
+        "n_rows": 561,
+        "n_papers": 104,
+        "probability": 0.060398
+      },
+      {
+        "id": 6,
+        "label": "Spin-coating | DMSO | steps=1 | antisolvent=False | solvent_anneal=False",
+        "n_rows": 294,
+        "n_papers": 64,
+        "probability": 0.04738
+      },
+      {
+        "id": 7,
+        "label": "Spin-coating | GBL | steps=1 | antisolvent=False | solvent_anneal=False",
+        "n_rows": 218,
+        "n_papers": 60,
+        "probability": 0.045875
+      },
+      {
+        "id": 8,
+        "label": "Spin-coating | DMF+DMSO | steps=1 | antisolvent=True | solvent_anneal=True",
+        "n_rows": 207,
+        "n_papers": 37,
+        "probability": 0.036025
+      },
+      {
+        "id": 9,
+        "label": "Spin-coating | DMSO+GBL | steps=1 | antisolvent=False | solvent_anneal=False",
+        "n_rows": 170,
+        "n_papers": 37,
+        "probability": 0.036025
+      },
+      {
+        "id": 10,
+        "label": "Spin-coating | DMF+NMP | steps=1 | antisolvent=True | solvent_anneal=False",
+        "n_rows": 79,
+        "n_papers": 20,
+        "probability": 0.026486
+      },
+      {
+        "id": 11,
+        "label": "Spin-coating | DMF | steps=1 | antisolvent=False | solvent_anneal=True",
+        "n_rows": 70,
+        "n_papers": 16,
+        "probability": 0.02369
+      },
+      {
+        "id": 12,
+        "label": "Spin-coating | DMF+GBL | steps=1 | antisolvent=False | solvent_anneal=False",
+        "n_rows": 69,
+        "n_papers": 18,
+        "probability": 0.025127
+      },
+      {
+        "id": 13,
+        "label": "Spin-coating | DMF+GBL | steps=1 | antisolvent=True | solvent_anneal=False",
+        "n_rows": 62,
+        "n_papers": 16,
+        "probability": 0.02369
+      },
+      {
+        "id": 14,
+        "label": "Spin-coating | Acetonitrile+Methylamine | steps=1 | antisolvent=False | solvent_anneal=False",
+        "n_rows": 42,
+        "n_papers": 10,
+        "probability": 0.018728
+      }
+    ],
+    "antisolvent_medium": [
+      {
+        "id": 0,
+        "label": "Chlorobenzene",
+        "n_rows": 5922,
+        "n_papers": 1163,
+        "probability": 0.298894
+      },
+      {
+        "id": 1,
+        "label": "Toluene",
+        "n_rows": 1941,
+        "n_papers": 369,
+        "probability": 0.168361
+      },
+      {
+        "id": 2,
+        "label": "Diethyl ether",
+        "n_rows": 1472,
+        "n_papers": 278,
+        "probability": 0.146134
+      },
+      {
+        "id": 3,
+        "label": "Ethyl acetate",
+        "n_rows": 402,
+        "n_papers": 90,
+        "probability": 0.083147
+      },
+      {
+        "id": 4,
+        "label": "N2",
+        "n_rows": 147,
+        "n_papers": 26,
+        "probability": 0.04469
+      },
+      {
+        "id": 5,
+        "label": "Anisole",
+        "n_rows": 130,
+        "n_papers": 30,
+        "probability": 0.048005
+      },
+      {
+        "id": 6,
+        "label": "Vacuum",
+        "n_rows": 110,
+        "n_papers": 26,
+        "probability": 0.04469
+      },
+      {
+        "id": 7,
+        "label": "2-Butanol",
+        "n_rows": 95,
+        "n_papers": 15,
+        "probability": 0.033945
+      },
+      {
+        "id": 8,
+        "label": "Ar",
+        "n_rows": 81,
+        "n_papers": 14,
+        "probability": 0.032794
+      },
+      {
+        "id": 9,
+        "label": "Trifluorotoluene",
+        "n_rows": 59,
+        "n_papers": 13,
+        "probability": 0.031601
+      },
+      {
+        "id": 10,
+        "label": "Ethyl ether",
+        "n_rows": 53,
+        "n_papers": 13,
+        "probability": 0.031601
+      },
+      {
+        "id": 11,
+        "label": "IPA",
+        "n_rows": 40,
+        "n_papers": 17,
+        "probability": 0.036137
+      }
+    ],
+    "atmosphere": [
+      {
+        "id": 0,
+        "label": "N2",
+        "n_rows": 7588,
+        "n_papers": 1526,
+        "probability": 0.504086
+      },
+      {
+        "id": 1,
+        "label": "Air",
+        "n_rows": 1363,
+        "n_papers": 304,
+        "probability": 0.224991
+      },
+      {
+        "id": 2,
+        "label": "Ar",
+        "n_rows": 359,
+        "n_papers": 74,
+        "probability": 0.111005
+      },
+      {
+        "id": 3,
+        "label": "Dry air",
+        "n_rows": 299,
+        "n_papers": 61,
+        "probability": 0.100784
+      },
+      {
+        "id": 4,
+        "label": "Ambient",
+        "n_rows": 70,
+        "n_papers": 21,
+        "probability": 0.059134
+      }
+    ],
+    "etl_recipe": [
+      {
+        "id": 0,
+        "label": "TiO2-c / TiO2-mp @ Spin-coating / Spin-coating",
+        "n_rows": 3317,
+        "n_papers": 732,
+        "thickness_lo_nm": 125.0,
+        "thickness_hi_nm": 350.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.099904,
+        "p_pin": 0.0
+      },
+      {
+        "id": 1,
+        "label": "TiO2-c @ Spin-coating",
+        "n_rows": 2487,
+        "n_papers": 634,
+        "thickness_lo_nm": 30.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.092588,
+        "p_pin": 0.0
+      },
+      {
+        "id": 2,
+        "label": "TiO2-c / TiO2-mp @ Spray-pyrolysis / Spin-coating",
+        "n_rows": 2398,
+        "n_papers": 526,
+        "thickness_lo_nm": 140.0,
+        "thickness_hi_nm": 320.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.084723,
+        "p_pin": 0.0
+      },
+      {
+        "id": 3,
+        "label": "PCBM-60 @ Spin-coating",
+        "n_rows": 1858,
+        "n_papers": 528,
+        "thickness_lo_nm": 30.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.022186,
+        "p_pin": 0.165244
+      },
+      {
+        "id": 4,
+        "label": "SnO2-c @ Spin-coating",
+        "n_rows": 1029,
+        "n_papers": 381,
+        "thickness_lo_nm": 20.0,
+        "thickness_hi_nm": 50.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.071984,
+        "p_pin": 0.0
+      },
+      {
+        "id": 5,
+        "label": "SnO2-np @ Spin-coating",
+        "n_rows": 975,
+        "n_papers": 222,
+        "thickness_lo_nm": 20.0,
+        "thickness_hi_nm": 50.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.054469,
+        "p_pin": 0.0
+      },
+      {
+        "id": 6,
+        "label": "PCBM-60 / BCP @ Spin-coating / Spin-coating",
+        "n_rows": 963,
+        "n_papers": 199,
+        "thickness_lo_nm": 37.0,
+        "thickness_hi_nm": 80.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.104404
+      },
+      {
+        "id": 7,
+        "label": "C60 / BCP @ Evaporation / Evaporation",
+        "n_rows": 904,
+        "n_papers": 324,
+        "thickness_lo_nm": 27.0,
+        "thickness_hi_nm": 50.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.011693,
+        "p_pin": 0.131686
+      },
+      {
+        "id": 8,
+        "label": "TiO2-c @ Spray-pyrolysis",
+        "n_rows": 563,
+        "n_papers": 122,
+        "thickness_lo_nm": 20.0,
+        "thickness_hi_nm": 65.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.040674,
+        "p_pin": 0.0
+      },
+      {
+        "id": 9,
+        "label": "TiO2-c @ CBD",
+        "n_rows": 540,
+        "n_papers": 114,
+        "thickness_lo_nm": 30.0,
+        "thickness_hi_nm": 80.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.039132,
+        "p_pin": 0.0
+      },
+      {
+        "id": 10,
+        "label": "PCBM-60 / BCP @ Spin-coating / Evaporation",
+        "n_rows": 397,
+        "n_papers": 80,
+        "thickness_lo_nm": 39.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.064683
+      },
+      {
+        "id": 11,
+        "label": "PCBM-60 / C60 / BCP @ Spin-coating / Evaporation / Evaporation",
+        "n_rows": 278,
+        "n_papers": 56,
+        "thickness_lo_nm": 38.0,
+        "thickness_hi_nm": 122.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.055026
+      },
+      {
+        "id": 12,
+        "label": "C60 @ Evaporation",
+        "n_rows": 249,
+        "n_papers": 90,
+        "thickness_lo_nm": 15.0,
+        "thickness_hi_nm": 45.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.018488,
+        "p_pin": 0.060278
+      },
+      {
+        "id": 13,
+        "label": "ZnO-c @ Spin-coating",
+        "n_rows": 227,
+        "n_papers": 52,
+        "thickness_lo_nm": 25.0,
+        "thickness_hi_nm": 90.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.025883,
+        "p_pin": 0.0
+      },
+      {
+        "id": 14,
+        "label": "PCBM-60 / Bphen @ Spin-coating / Spin-coating",
+        "n_rows": 214,
+        "n_papers": 44,
+        "thickness_lo_nm": 27.0,
+        "thickness_hi_nm": 110.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.049216
+      },
+      {
+        "id": 15,
+        "label": "ZnO-np @ Spin-coating",
+        "n_rows": 205,
+        "n_papers": 42,
+        "thickness_lo_nm": 20.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.02156,
+        "p_pin": 0.0
+      },
+      {
+        "id": 16,
+        "label": "PCBM-60 / LiF @ Spin-coating / Evaporation",
+        "n_rows": 176,
+        "n_papers": 47,
+        "thickness_lo_nm": 35.0,
+        "thickness_hi_nm": 148.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.050867
+      },
+      {
+        "id": 17,
+        "label": "TiO2-c / TiO2-mp / ZrO2-mp @ Spray-pyrolysis / Screen printing / Screen printing",
+        "n_rows": 171,
+        "n_papers": 49,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.025883,
+        "p_pin": 0.0
+      },
+      {
+        "id": 18,
+        "label": "PCBM-60 / ZnO-np @ Spin-coating / Spin-coating",
+        "n_rows": 162,
+        "n_papers": 42,
+        "thickness_lo_nm": 80.0,
+        "thickness_hi_nm": 160.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.047509
+      },
+      {
+        "id": 19,
+        "label": "TiO2-c / TiO2-mp @ ALD / Spin-coating",
+        "n_rows": 145,
+        "n_papers": 27,
+        "thickness_lo_nm": 117.0,
+        "thickness_hi_nm": 362.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.019213,
+        "p_pin": 0.0
+      },
+      {
+        "id": 20,
+        "label": "TiO2-c / PCBM-60 @ Spin-coating / Spin-coating",
+        "n_rows": 120,
+        "n_papers": 32,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.020917,
+        "p_pin": 0.0
+      },
+      {
+        "id": 21,
+        "label": "SnO2-c @ CBD",
+        "n_rows": 117,
+        "n_papers": 36,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.022186,
+        "p_pin": 0.0
+      },
+      {
+        "id": 22,
+        "label": "SnO2-c / PCBM-60 @ Spin-coating / Spin-coating",
+        "n_rows": 110,
+        "n_papers": 18,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.015688,
+        "p_pin": 0.0
+      },
+      {
+        "id": 23,
+        "label": "PCBM-60 / PEI @ Spin-coating / Spin-coating",
+        "n_rows": 109,
+        "n_papers": 22,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.034001
+      },
+      {
+        "id": 24,
+        "label": "TiO2-np @ Spin-coating",
+        "n_rows": 93,
+        "n_papers": 28,
+        "thickness_lo_nm": 40.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.018854,
+        "p_pin": 0.0
+      },
+      {
+        "id": 25,
+        "label": "TiO2-c / TiO2-mp @ CBD / Spin-coating",
+        "n_rows": 93,
+        "n_papers": 17,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.015246,
+        "p_pin": 0.0
+      },
+      {
+        "id": 26,
+        "label": "TiO2-c / Al2O3-mp @ Spin-coating / Spin-coating",
+        "n_rows": 87,
+        "n_papers": 28,
+        "thickness_lo_nm": 327.0,
+        "thickness_hi_nm": 400.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.019213,
+        "p_pin": 0.0
+      },
+      {
+        "id": 27,
+        "label": "PCBM-60 / bis-C60 @ Spin-coating / Spin-coating",
+        "n_rows": 85,
+        "n_papers": 17,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.030592
+      },
+      {
+        "id": 28,
+        "label": "TiO2-c / TiO2-mp @ Spray-pyrolysis / Screen printing",
+        "n_rows": 81,
+        "n_papers": 18,
+        "thickness_lo_nm": 230.0,
+        "thickness_hi_nm": 400.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.015688,
+        "p_pin": 0.0
+      },
+      {
+        "id": 29,
+        "label": "TiO2-c @ Electron-beam evaporation",
+        "n_rows": 79,
+        "n_papers": 15,
+        "thickness_lo_nm": 40.0,
+        "thickness_hi_nm": 61.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.014321,
+        "p_pin": 0.0
+      },
+      {
+        "id": 30,
+        "label": "TiO2-c / TiO2-mp @ Sputtering / Spin-coating",
+        "n_rows": 77,
+        "n_papers": 19,
+        "thickness_lo_nm": 150.0,
+        "thickness_hi_nm": 320.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.016117,
+        "p_pin": 0.0
+      },
+      {
+        "id": 31,
+        "label": "TiO2-c @ Dipp-coating",
+        "n_rows": 75,
+        "n_papers": 16,
+        "thickness_lo_nm": 40.0,
+        "thickness_hi_nm": 200.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.01479,
+        "p_pin": 0.0
+      },
+      {
+        "id": 32,
+        "label": "TiO2-c @ Hydrothermal",
+        "n_rows": 75,
+        "n_papers": 17,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.015246,
+        "p_pin": 0.0
+      },
+      {
+        "id": 33,
+        "label": "PCBM-70 @ Spin-coating",
+        "n_rows": 73,
+        "n_papers": 21,
+        "thickness_lo_nm": 30.0,
+        "thickness_hi_nm": 90.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.033182
+      },
+      {
+        "id": 34,
+        "label": "PCBM-60 / Zr(acac)4 @ Spin-coating / Spin-coating",
+        "n_rows": 70,
+        "n_papers": 18,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.030592
+      },
+      {
+        "id": 35,
+        "label": "TiO2-c / TiO2-nw @ Spin-coating / Hydrothermal",
+        "n_rows": 68,
+        "n_papers": 11,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.012264,
+        "p_pin": 0.0
+      },
+      {
+        "id": 36,
+        "label": "PC61BM @ Spin-coating",
+        "n_rows": 67,
+        "n_papers": 31,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.039956
+      },
+      {
+        "id": 37,
+        "label": "TiO2-c / TiO2-mp @ Dipp-coating / Spin-coating",
+        "n_rows": 67,
+        "n_papers": 11,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.012264,
+        "p_pin": 0.0
+      },
+      {
+        "id": 38,
+        "label": "TiO2-c / TiO2-mp / ZrO2-mp @ Spin-coating / Spin-coating / Spin-coating",
+        "n_rows": 64,
+        "n_papers": 12,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.012264,
+        "p_pin": 0.0
+      },
+      {
+        "id": 39,
+        "label": "PCBM-60 / PEIE @ Spin-coating / Spin-coating",
+        "n_rows": 56,
+        "n_papers": 12,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.025702
+      },
+      {
+        "id": 40,
+        "label": "TiO2-nw @ Hydrothermal",
+        "n_rows": 53,
+        "n_papers": 15,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.014321,
+        "p_pin": 0.0
+      },
+      {
+        "id": 41,
+        "label": "PCBM-60 / C60 @ Spin-coating / Evaporation",
+        "n_rows": 48,
+        "n_papers": 13,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.026752
+      },
+      {
+        "id": 42,
+        "label": "TiO2-c / TiO2-nw @ CBD / Hydrothermal",
+        "n_rows": 47,
+        "n_papers": 10,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.011693,
+        "p_pin": 0.0
+      },
+      {
+        "id": 43,
+        "label": "C60 @ Spin-coating",
+        "n_rows": 45,
+        "n_papers": 15,
+        "thickness_lo_nm": 30.0,
+        "thickness_hi_nm": 40.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.013332,
+        "p_pin": 0.0
+      },
+      {
+        "id": 44,
+        "label": "TiO2-c @ Sputtering",
+        "n_rows": 42,
+        "n_papers": 12,
+        "thickness_lo_nm": 45.0,
+        "thickness_hi_nm": 65.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.012809,
+        "p_pin": 0.0
+      },
+      {
+        "id": 45,
+        "label": "TiO2-c @ ALD",
+        "n_rows": 42,
+        "n_papers": 16,
+        "thickness_lo_nm": 7.0,
+        "thickness_hi_nm": 300.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.01479,
+        "p_pin": 0.0
+      },
+      {
+        "id": 46,
+        "label": "SnO2-c @ ALD",
+        "n_rows": 39,
+        "n_papers": 12,
+        "thickness_lo_nm": 12.0,
+        "thickness_hi_nm": 30.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.012264,
+        "p_pin": 0.0
+      },
+      {
+        "id": 47,
+        "label": "PCBM-60 / AZO-np @ Spin-coating / Spin-coating",
+        "n_rows": 37,
+        "n_papers": 11,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.024608
+      },
+      {
+        "id": 48,
+        "label": "TiO2-c / TiO2-mp / Al2O3-mp @ Spray-pyrolysis / Screen printing / Screen printing",
+        "n_rows": 34,
+        "n_papers": 11,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.012264,
+        "p_pin": 0.0
+      },
+      {
+        "id": 49,
+        "label": "PCBM-60 / ZnO @ Spin-coating / Spin-coating",
+        "n_rows": 30,
+        "n_papers": 12,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.025702
+      },
+      {
+        "id": 50,
+        "label": "TiO2-c / TiO2-mp @ Spray pyrolysis / Spin-coating",
+        "n_rows": 30,
+        "n_papers": 15,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.014321,
+        "p_pin": 0.0
+      },
+      {
+        "id": 51,
+        "label": "TiO2-mp @ Spin-coating",
+        "n_rows": 28,
+        "n_papers": 17,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.015246,
+        "p_pin": 0.0
+      },
+      {
+        "id": 52,
+        "label": "ZnO @ Spin-coating",
+        "n_rows": 27,
+        "n_papers": 14,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.013835,
+        "p_pin": 0.0
+      },
+      {
+        "id": 53,
+        "label": "ZnO-c / ZnO-nw @ Spin-coating / Hydrothermal",
+        "n_rows": 21,
+        "n_papers": 11,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.011693,
+        "p_pin": 0.0
+      }
+    ],
+    "htl_recipe": [
+      {
+        "id": 0,
+        "label": "Spiro-MeOTAD @ Spin-coating",
+        "n_rows": 12368,
+        "n_papers": 2650,
+        "thickness_lo_nm": 100.0,
+        "thickness_hi_nm": 290.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.481618,
+        "p_pin": 0.051945
+      },
+      {
+        "id": 1,
+        "label": "PEDOT:PSS @ Spin-coating",
+        "n_rows": 3383,
+        "n_papers": 888,
+        "thickness_lo_nm": 25.0,
+        "thickness_hi_nm": 50.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.038743,
+        "p_pin": 0.285169
+      },
+      {
+        "id": 2,
+        "label": "PTAA @ Spin-coating",
+        "n_rows": 1204,
+        "n_papers": 363,
+        "thickness_lo_nm": 10.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.107549,
+        "p_pin": 0.14724
+      },
+      {
+        "id": 3,
+        "label": "Spiro-OMeTAD @ Spin-coating",
+        "n_rows": 811,
+        "n_papers": 372,
+        "thickness_lo_nm": 80.0,
+        "thickness_hi_nm": 213.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.180992,
+        "p_pin": 0.0
+      },
+      {
+        "id": 4,
+        "label": "NiO-c @ Spin-coating",
+        "n_rows": 646,
+        "n_papers": 153,
+        "thickness_lo_nm": 15.0,
+        "thickness_hi_nm": 80.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.116951
+      },
+      {
+        "id": 5,
+        "label": "P3HT @ Spin-coating",
+        "n_rows": 428,
+        "n_papers": 142,
+        "thickness_lo_nm": 30.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.109179,
+        "p_pin": 0.0
+      },
+      {
+        "id": 6,
+        "label": "NiO-np @ Spin-coating",
+        "n_rows": 288,
+        "n_papers": 62,
+        "thickness_lo_nm": 20.0,
+        "thickness_hi_nm": 50.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.070224
+      },
+      {
+        "id": 7,
+        "label": "P3CT-Na @ Spin-coating",
+        "n_rows": 101,
+        "n_papers": 11,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.030503
+      },
+      {
+        "id": 8,
+        "label": "NiOx @ Spin-coating",
+        "n_rows": 75,
+        "n_papers": 40,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.058674
+      },
+      {
+        "id": 9,
+        "label": "CuSCN @ Spin-coating",
+        "n_rows": 60,
+        "n_papers": 23,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.040959,
+        "p_pin": 0.0
+      },
+      {
+        "id": 10,
+        "label": "CuPc @ Evaporation",
+        "n_rows": 59,
+        "n_papers": 20,
+        "thickness_lo_nm": 30.0,
+        "thickness_hi_nm": 67.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.040959,
+        "p_pin": 0.0
+      },
+      {
+        "id": 11,
+        "label": "MeO-2PACz @ Spin-coating",
+        "n_rows": 58,
+        "n_papers": 22,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.043138
+      },
+      {
+        "id": 12,
+        "label": "PolyTPD @ Spin-coating",
+        "n_rows": 56,
+        "n_papers": 17,
+        "thickness_lo_nm": 10.0,
+        "thickness_hi_nm": 35.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.038584
+      },
+      {
+        "id": 13,
+        "label": "NiO @ Spin-coating",
+        "n_rows": 52,
+        "n_papers": 14,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.033415
+      },
+      {
+        "id": 14,
+        "label": "2PACz @ Spin-coating",
+        "n_rows": 48,
+        "n_papers": 40,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.060239
+      },
+      {
+        "id": 15,
+        "label": "NiO-c @ Spray-pyrolysis",
+        "n_rows": 42,
+        "n_papers": 11,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.030503
+      },
+      {
+        "id": 16,
+        "label": "Graphene oxide @ Spin-coating",
+        "n_rows": 30,
+        "n_papers": 14,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.0,
+        "p_pin": 0.033415
+      }
+    ],
+    "bc_recipe": [
+      {
+        "id": 0,
+        "label": "Au @ Evaporation",
+        "n_rows": 12264,
+        "n_papers": 2505,
+        "thickness_lo_nm": 60.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.368912,
+        "p_pin": 0.115626
+      },
+      {
+        "id": 1,
+        "label": "Ag @ Evaporation",
+        "n_rows": 8087,
+        "n_papers": 1698,
+        "thickness_lo_nm": 80.0,
+        "thickness_hi_nm": 150.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.206855,
+        "p_pin": 0.392004
+      },
+      {
+        "id": 2,
+        "label": "Al @ Evaporation",
+        "n_rows": 1562,
+        "n_papers": 366,
+        "thickness_lo_nm": 80.0,
+        "thickness_hi_nm": 110.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.023666,
+        "p_pin": 0.239464
+      },
+      {
+        "id": 3,
+        "label": "Carbon @ Doctor blading",
+        "n_rows": 587,
+        "n_papers": 147,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.089805,
+        "p_pin": 0.0
+      },
+      {
+        "id": 4,
+        "label": "Cu @ Evaporation",
+        "n_rows": 482,
+        "n_papers": 226,
+        "thickness_lo_nm": 80.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.024821,
+        "p_pin": 0.186959
+      },
+      {
+        "id": 5,
+        "label": "Carbon @ Screen printing",
+        "n_rows": 438,
+        "n_papers": 118,
+        "thickness_lo_nm": NaN,
+        "thickness_hi_nm": NaN,
+        "thickness_source": "unspecified (too few observations)",
+        "p_nip": 0.080949,
+        "p_pin": 0.0
+      },
+      {
+        "id": 6,
+        "label": "MoO3 / Ag @ Evaporation / Evaporation",
+        "n_rows": 401,
+        "n_papers": 90,
+        "thickness_lo_nm": 82.0,
+        "thickness_hi_nm": 127.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.070602,
+        "p_pin": 0.0
+      },
+      {
+        "id": 7,
+        "label": "Ca / Al @ Evaporation / Evaporation",
+        "n_rows": 152,
+        "n_papers": 27,
+        "thickness_lo_nm": 100.0,
+        "thickness_hi_nm": 125.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.0,
+        "p_pin": 0.065947
+      },
+      {
+        "id": 8,
+        "label": "Au @ Sputtering",
+        "n_rows": 85,
+        "n_papers": 15,
+        "thickness_lo_nm": 50.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.026983,
+        "p_pin": 0.0
+      },
+      {
+        "id": 9,
+        "label": "MoO3 / Au @ Evaporation / Evaporation",
+        "n_rows": 85,
+        "n_papers": 15,
+        "thickness_lo_nm": 90.0,
+        "thickness_hi_nm": 110.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.028985,
+        "p_pin": 0.0
+      },
+      {
+        "id": 10,
+        "label": "MoO3 / Al @ Evaporation / Evaporation",
+        "n_rows": 64,
+        "n_papers": 17,
+        "thickness_lo_nm": 105.0,
+        "thickness_hi_nm": 215.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.029935,
+        "p_pin": 0.0
+      },
+      {
+        "id": 11,
+        "label": "AgAl @ Evaporation",
+        "n_rows": 57,
+        "n_papers": 13,
+        "thickness_lo_nm": 80.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.023666,
+        "p_pin": 0.0
+      },
+      {
+        "id": 12,
+        "label": "Au @ Electron-beam evaporation",
+        "n_rows": 40,
+        "n_papers": 11,
+        "thickness_lo_nm": 70.0,
+        "thickness_hi_nm": 100.0,
+        "thickness_source": "recipe_quantiles",
+        "p_nip": 0.024821,
+        "p_pin": 0.0
+      }
+    ]
+  },
+  "continuous": [
+    {
+      "name": "anneal_temperature_C",
+      "unit": "degC",
+      "lo": 70.0,
+      "hi": 160.0,
+      "scale": "linear",
+      "round_to": 1.0,
+      "rationale": "Single final thermal anneal of the perovskite. Lower end: solvent removal / crystallisation of DMF-DMSO films is incomplete well below ~70 degC; upper end 160 degC: MA-containing films decompose when annealed hot (guarded by a separate rule above 150 degC). Observed 5-95 % range of the training data is 50-150 degC; 100 degC alone is ~50 % of the observed values."
+    },
+    {
+      "name": "anneal_time_min",
+      "unit": "min",
+      "lo": 2.0,
+      "hi": 60.0,
+      "scale": "log",
+      "round_to": 0.5,
+      "rationale": "Anneal duration spans more than one order of magnitude, therefore log-uniform LHS. Observed median ~15 min, 5-95 % ~3-90 min with a heavy tail of data-entry outliers (max 5400)."
+    },
+    {
+      "name": "perovskite_thickness_nm",
+      "unit": "nm",
+      "lo": 200.0,
+      "hi": 650.0,
+      "scale": "linear",
+      "round_to": 5.0,
+      "rationale": "Observed 5-95 % range 175-650 nm (max 4000 = data-entry outlier). Thinner films absorb too little, thicker ones exceed typical carrier diffusion lengths."
+    }
+  ],
+  "versions": {
+    "python": "3.13.15",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "sklearn": "1.6.1",
+    "xgboost": "3.4.1",
+    "mapie": "1.5.0",
+    "shap": "0.52.0",
+    "matminer": "0.10.1",
+    "pymatgen": null,
+    "joblib": "1.6.0"
+  },
+  "sampling_note": "scipy.stats.qmc.LatinHypercube(d=18, scramble=True, optimization=None, seed=42); categorical columns = inverse CDF of tempered category probabilities",
+  "reported_run": "results/5fold_seed0_split42_675a0c14"
+}

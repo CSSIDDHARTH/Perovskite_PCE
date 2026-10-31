@@ -1,0 +1,6 @@
+{
+  "fingerprint": "8c7914520a6bc9ed",
+  "n_splits": 5,
+  "n_rows": 24403,
+  "extra": "split_seed=42|fractions=(0.7, 0.15, 0.15)"
+}

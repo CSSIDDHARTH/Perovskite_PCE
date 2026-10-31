@@ -1,0 +1,46 @@
+run id: uq_seed0_split42_e04bab08 -> results_uq/uq_seed0_split42_e04bab08
+requested: MAPIE no | SHAP ['Direct|VotingET', 'TwoStage[S1=HistGradientBoosting]|VotingET'] | test set not used
+Total rows            : 39,151
+Train rows            : 27,410  (70.01%)   unique DOI groups: 5,910
+Validation rows       : 5,870  (14.99%)   unique DOI groups: 1,302
+Test rows             : 5,871  (15.00%)   unique DOI groups: 1,223
+Train/Validation DOI overlap: 0
+Train/Test DOI overlap: 0
+Validation/Test DOI overlap: 0
+Note: the split is by whole papers, so the row percentages deviate slightly from 70/15/15 (papers contribute different numbers of rows).
+preprocessing restored from cache prep_4f3cba6b74f3.joblib (311 features)
+
+=== SHAP (interventional) for 2 requested candidate(s): ['Direct|VotingET', 'TwoStage[S1=HistGradientBoosting]|VotingET'] ===
+
+--- Direct|VotingET ---
+  [Direct] RandomForest: point model fitted in 33s
+  [Direct] RandomForest: SHAP (interventional) 919s on 1000 rows; additivity gap max 5.6e-07 -> OK
+  [Direct] XGBoost: point model fitted in 8s
+  [Direct] XGBoost: SHAP (xgboost_native_pred_contribs) 10s on 1000 rows; additivity gap max 2.5e-05 -> OK
+  [Direct] HistGradientBoosting: point model fitted in 20s
+  [Direct] HistGradientBoosting: SHAP (interventional) 37s on 1000 rows; additivity gap max 1.3e-07 -> OK
+  [Direct] ExtraTrees: point model fitted in 52s
+  [Direct] ExtraTrees: SHAP (interventional) 576s on 1000 rows; additivity gap max 5e-07 -> OK
+  candidate additivity gap max 6.5e-06 (tol 0.001) -> OK
+
+--- TwoStage[S1=HistGradientBoosting]|VotingET ---
+  Stage 1 (HistGradientBoosting; inner folds 5) fitted in 211s
+  [TwoStage] RandomForest: point model fitted in 246s
+  [TwoStage] RandomForest: SHAP (interventional) 944s on 1000 rows; additivity gap max 3.9e-07 -> OK
+  [TwoStage] XGBoost: point model fitted in 7s
+  [TwoStage] XGBoost: SHAP (xgboost_native_pred_contribs) 8s on 1000 rows; additivity gap max 3.6e-05 -> OK
+  [TwoStage] HistGradientBoosting: point model fitted in 15s
+  [TwoStage] HistGradientBoosting: SHAP (interventional) 30s on 1000 rows; additivity gap max 2.5e-05 -> OK
+  [TwoStage] ExtraTrees: point model fitted in 48s
+  [TwoStage] ExtraTrees: SHAP (interventional) 518s on 1000 rows; additivity gap max 5.3e-07 -> OK
+  candidate additivity gap max 1.5e-05 (tol 0.001) -> OK
+  [stage1] Voc: SHAP (interventional) additivity gap max 3.8e-09 -> OK
+  [stage1] Jsc: SHAP (interventional) additivity gap max 9e-08 -> OK
+  [stage1] FF: SHAP (interventional) additivity gap max 2.5e-09 -> OK
+
+SHAP summary:
+                                  model_id  n_rows  additive  max_additivity_gap  stage1_share                                                                                                                              top5
+                           Direct|VotingET    1000      True                 0.0           NaN A_frac__FA (0.46) | solvent__DMSO (0.44) | htl_stack__Spiro-MeOTAD (0.29) | htl_stack__PEDOT:PSS (0.25) | A_magpie__Column (0.20)
+TwoStage[S1=HistGradientBoosting]|VotingET    1000      True                 0.0        0.4778                                        Jsc_hat (0.76) | Voc_hat (0.68) | FF_hat (0.63) | A_frac__FA (0.16) | solvent__DMSO (0.09)
+
+Outputs written to /kaggle/working/psc_project/results_uq/uq_seed0_split42_e04bab08

@@ -1,0 +1,34 @@
+run id: uq_seed0_split42_1ef04462 -> results_uq/uq_seed0_split42_1ef04462
+requested: MAPIE no | SHAP ['TwoStage[S1=HistGradientBoosting]|VotingET'] | test set not used
+Total rows            : 34,862
+Train rows            : 24,403  (70.00%)   unique DOI groups: 4,799
+Validation rows       : 5,229  (15.00%)   unique DOI groups: 1,085
+Test rows             : 5,230  (15.00%)   unique DOI groups: 1,065
+Train/Validation DOI overlap: 0
+Train/Test DOI overlap: 0
+Validation/Test DOI overlap: 0
+Note: the split is by whole papers, so the row percentages deviate slightly from 70/15/15 (papers contribute different numbers of rows).
+preprocessing restored from cache prep_923a07d6d1d4.joblib (306 features)
+
+=== SHAP (interventional) for 1 requested candidate(s): ['TwoStage[S1=HistGradientBoosting]|VotingET'] ===
+
+--- TwoStage[S1=HistGradientBoosting]|VotingET ---
+  Stage 1 (HistGradientBoosting; inner folds 5) fitted in 194s
+  [TwoStage] RandomForest: point model fitted in 224s
+  [TwoStage] RandomForest: SHAP (interventional) 943s on 1000 rows; additivity gap max 3.5e-07 -> OK
+  [TwoStage] XGBoost: point model fitted in 8s
+  [TwoStage] XGBoost: SHAP (xgboost_native_pred_contribs) 9s on 1000 rows; additivity gap max 3.6e-05 -> OK
+  [TwoStage] HistGradientBoosting: point model fitted in 16s
+  [TwoStage] HistGradientBoosting: SHAP (interventional) 35s on 1000 rows; additivity gap max 0.0046 -> NOT ADDITIVE
+  [TwoStage] ExtraTrees: point model fitted in 43s
+  [TwoStage] ExtraTrees: SHAP (interventional) 528s on 1000 rows; additivity gap max 2.8e-07 -> OK
+  candidate additivity gap max 0.0011 (tol 0.001) -> NOT ADDITIVE -> written as _INEXACT
+  [stage1] Voc: SHAP (interventional) additivity gap max 2.7e-09 -> OK
+  [stage1] Jsc: SHAP (interventional) additivity gap max 7.9e-08 -> OK
+  [stage1] FF: SHAP (interventional) additivity gap max 2.9e-09 -> OK
+
+SHAP summary:
+                                  model_id  n_rows  additive  max_additivity_gap  stage1_share                                                                                       top5
+TwoStage[S1=HistGradientBoosting]|VotingET    1000     False              0.0011        0.4567 Jsc_hat (0.67) | Voc_hat (0.57) | FF_hat (0.51) | A_frac__FA (0.15) | solvent__DMSO (0.11)
+
+Outputs written to /kaggle/working/psc_project/results_uq/uq_seed0_split42_1ef04462
